@@ -4,7 +4,7 @@
         "name": "Makanan Sehat",
         "img": "https://source.unsplash.com/1600x900/?healty-food",
         "price": 50000,
-        "value": 2
+        "value": 0
     },
     {
         "id": 2,
