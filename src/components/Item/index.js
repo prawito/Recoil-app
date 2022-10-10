@@ -1,4 +1,4 @@
-import currency from "../utils/currency";
+import currency from "../../utils/currency";
 import Counter from "./Counter";
 
 function Item(props){

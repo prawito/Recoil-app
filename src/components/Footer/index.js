@@ -1,4 +1,4 @@
-import currency from "../utils/currency";
+import currency from "../../utils/currency";
 
 function Footer(){
     return(

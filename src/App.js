@@ -1,16 +1,17 @@
 import './App.css';
-import Footer from './Footer';
-import Header from './Header';
-import Body from './Layout/Body';
-import Container from './Layout/Container';
-import ListItem from './ListItem';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Body from './components/Layout/Body';
+import Container from './components/Layout/Container';
+import ListItem from './components/ListItem';
+import items from './dummy/items.json';
 
 function App() {
   return (
     <Container>
       <Header />
       <Body>
-        <ListItem />
+        <ListItem items={items} />
       </Body>
       <Footer />
     </Container>
