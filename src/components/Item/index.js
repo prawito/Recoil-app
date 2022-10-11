@@ -10,6 +10,10 @@ function Item(props){
       setItemValue(itemValue + 1);
     }
 
+    const onRemoveItem = () => {
+      setItemValue(0);
+    }
+
     useEffect(() => {
       setItemValue(value);
     }, [value]);
@@ -20,7 +24,7 @@ function Item(props){
         <div className='item-info'>
           <p className='item-name'>{name}</p>
           <p className='item-price'>{currency(price)}</p>
-          {itemValue > 0 ? <Counter defaultValue={itemValue} /> : <button className='btn-add' onClick={onAddItem}>Add</button>}
+          {itemValue > 0 ? <Counter defaultValue={itemValue} onRemoveItem={onRemoveItem} /> : <button className='btn-add' onClick={onAddItem}>Add</button>}
         </div>
       </div>
     )
