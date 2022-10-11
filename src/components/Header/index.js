@@ -1,12 +1,12 @@
 import cartIcon from './cart-icon.png';
 
-function Header(){
+function Header({totalItem}){
     return(
         <div className='header'>
             <p className='app-name'>Fuud App</p>
             <div className='cart'>
             <img src={cartIcon} alt='cart-icon' />
-            <p className='total-cart-item'>10</p>
+            {totalItem > 0 && <p className='total-cart-item'>{totalItem}</p>}
             </div>
         </div>
     )
