@@ -16,6 +16,18 @@ function App() {
     setTotalItem(total);
   }
 
+  const onItemChange = (itemChange) => {
+    const newArray = listItems.map(item => {
+      if(item.id === itemChange.id){
+        return itemChange;
+      } else {
+        return item;
+      }
+    })
+    setListItems(newArray);
+    sumItem(newArray);
+  }
+
   useEffect(() => {
     setListItems(items);
     sumItem(items);
@@ -25,7 +37,7 @@ function App() {
     <Container>
       <Header totalItem={totalItem} />
       <Body>
-        <ListItem items={listItems} />
+        <ListItem items={listItems} onItemChange={onItemChange} />
       </Body>
       <Footer />
     </Container>

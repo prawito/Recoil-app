@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Counter({defaultValue, onRemoveItem}){
+function Counter({defaultValue, onRemoveItem, onValueChange}){
     const [value, setValue] = useState(0);
 
     useEffect(() => {
@@ -13,13 +13,16 @@ function Counter({defaultValue, onRemoveItem}){
                 onRemoveItem();
             }
             setValue(value - 1);
+            onValueChange(value - 1);
         } else {
             setValue(value);
+            onValueChange(value);
         }
     }
 
     const onPlusItem = () => {
-        setValue(value + 1)
+        setValue(value + 1);
+        onValueChange(value + 1);
     }
 
     return(
