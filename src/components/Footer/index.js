@@ -1,9 +1,9 @@
 import currency from "../../utils/currency";
 
-function Footer(){
+function Footer({totalPrice}){
     return(
         <div className='footer'>
-            <button className='btn-submit'>Cart <div>{currency(124000)}</div></button>
+            <button className='btn-submit'>Cart <div>{currency(totalPrice)}</div></button>
         </div>
     )
 }

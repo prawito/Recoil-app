@@ -10,10 +10,13 @@ import items from './dummy/items.json';
 function App() {
   const [listItems, setListItems] = useState([]);
   const [totalItem, setTotalItem] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const sumItem = (itemsArray) => {
     const total = itemsArray.reduce((sebelum, sekarang) => sebelum + sekarang.value, 0);
+    const totalPrice = itemsArray.reduce((sebelum, itemSekarang) => sebelum + (itemSekarang.value * itemSekarang.price), 0);
     setTotalItem(total);
+    setTotalPrice(totalPrice);
   }
 
   const onItemChange = (itemChange) => {
@@ -39,7 +42,7 @@ function App() {
       <Body>
         <ListItem items={listItems} onItemChange={onItemChange} />
       </Body>
-      <Footer />
+      <Footer totalPrice={totalPrice} />
     </Container>
   );
 }

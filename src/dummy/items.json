@@ -18,7 +18,7 @@
         "name": "Makanan Pedas",
         "img": "https://source.unsplash.com/1600x900/?spicy-food",
         "price": 50000,
-        "value": 4
+        "value": 0
     },
     {
         "id": 4,
