@@ -1,9 +1,9 @@
 import { useRecoilValue } from 'recoil';
-import { totalItemState } from '../../App';
+import { sumItemState } from '../../App';
 import cartIcon from './cart-icon.png';
 
 function Header(){
-    const totalItem = useRecoilValue(totalItemState);
+    const {totalItem} = useRecoilValue(sumItemState);
     return(
         <div className='header'>
             <p className='app-name'>Fuud App</p>

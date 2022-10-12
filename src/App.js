@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { atom, useRecoilState, useSetRecoilState } from 'recoil';
+import { atom, selector, useRecoilState, useSetRecoilState } from 'recoil';
 import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -23,21 +23,25 @@ export const totalPriceState = atom({
   default: 0,
 });
 
+export const sumItemState = selector({
+  key: 'sumItemState',
+  get: ({get}) => {
+    const items = get(listItemsState);
+    const totalItem = items.reduce((sebelum, sekarang) => sebelum + sekarang.value, 0);
+    const totalPrice = items.reduce((sebelum, itemSekarang) => sebelum + (itemSekarang.value * itemSekarang.price), 0);
+
+    return {
+      totalItem,
+      totalPrice,
+    }
+  }
+})
+
 function App() {
   const [listItems, setListItems] = useRecoilState(listItemsState);
-  const setTotalItem = useSetRecoilState(totalItemState);
-  const setTotalPrice = useSetRecoilState(totalPriceState);
-
-  const sumItem = (itemsArray) => {
-    const total = itemsArray.reduce((sebelum, sekarang) => sebelum + sekarang.value, 0);
-    const totalPrice = itemsArray.reduce((sebelum, itemSekarang) => sebelum + (itemSekarang.value * itemSekarang.price), 0);
-    setTotalItem(total);
-    setTotalPrice(totalPrice);
-  }
 
   useEffect(() => {
     setListItems(items);
-    sumItem(items);
   }, []);
 
   return (
