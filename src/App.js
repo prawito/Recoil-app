@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { atom, useRecoilState } from 'recoil';
+import { atom, useRecoilState, useSetRecoilState } from 'recoil';
 import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -25,8 +25,8 @@ export const totalPriceState = atom({
 
 function App() {
   const [listItems, setListItems] = useRecoilState(listItemsState);
-  const [totalItem, setTotalItem] = useRecoilState(totalItemState);
-  const [totalPrice, setTotalPrice] = useRecoilState(totalPriceState);
+  const setTotalItem = useSetRecoilState(totalItemState);
+  const setTotalPrice = useSetRecoilState(totalPriceState);
 
   const sumItem = (itemsArray) => {
     const total = itemsArray.reduce((sebelum, sekarang) => sebelum + sekarang.value, 0);
@@ -42,11 +42,11 @@ function App() {
 
   return (
     <Container>
-      <Header totalItem={totalItem} />
+      <Header />
       <Body>
         <ListItem items={listItems} />
       </Body>
-      <Footer totalPrice={totalPrice} />
+      <Footer />
     </Container>
   );
 }

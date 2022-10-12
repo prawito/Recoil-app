@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { listItemsState, totalItemState, totalPriceState } from "../../App";
 import currency from "../../utils/currency";
 import Counter from "./Counter";
 
 function Item(props){
     const [listItems, setListItems] = useRecoilState(listItemsState);
-    const [totalItem, setTotalItem] = useRecoilState(totalItemState);
-    const [totalPrice, setTotalPrice] = useRecoilState(totalPriceState);
+    const setTotalItem = useSetRecoilState(totalItemState);
+    const setTotalPrice = useSetRecoilState(totalPriceState);
     const {item} = props;
     const {name, img, price, value} = item;
     const [itemValue, setItemValue] = useState(0);
