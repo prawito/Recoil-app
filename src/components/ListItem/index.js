@@ -1,9 +1,9 @@
 import Item from "../Item";
 
-function ListItem({items, onItemChange}){
+function ListItem({items}){
     return(
         <div className='list-item'>
-            {items.map(item => <Item item={item} onItemChange={onItemChange} />)}
+            {items.map(item => <Item item={item} />)}
         </div>
     )
 }
