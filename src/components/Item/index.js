@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { listItemsState } from "../../App";
+import { listItemsState } from "../../recoil/items";
 import currency from "../../utils/currency";
 import Counter from "./Counter";
 

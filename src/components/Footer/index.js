@@ -1,5 +1,5 @@
 import { useRecoilValue } from "recoil";
-import { sumItemState } from "../../App";
+import { sumItemState } from "../../recoil/items";
 import currency from "../../utils/currency";
 
 function Footer(){

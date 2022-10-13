@@ -1,5 +1,5 @@
 import { useRecoilValue } from 'recoil';
-import { sumItemState } from '../../App';
+import { sumItemState } from '../../recoil/items';
 import cartIcon from './cart-icon.png';
 
 function Header(){
